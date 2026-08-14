@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ei0448peemsi"]
+
+[ext_resource type="Texture2D" uid="uid://cddr1q5jobtbt" path="res://icon.svg" id="1_it8ov"]
+
+[node name="Item" type="Button" unique_id=1886315554]
+custom_minimum_size = Vector2(90, 90)
+
+[node name="Bg" type="ColorRect" parent="." unique_id=200450889]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemTexture" type="TextureRect" parent="." unique_id=505590719]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_it8ov")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="." unique_id=274429096]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "110"
+horizontal_alignment = 2

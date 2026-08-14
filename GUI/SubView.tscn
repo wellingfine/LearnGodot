@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bjlgiuvpfp706"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_iru06"]
+
+[sub_resource type="Environment" id="Environment_iru06"]
+ambient_light_source = 2
+ambient_light_color = Color(0.48529994, 0.80093575, 0.87160546, 1)
+
+[node name="SubView" type="SubViewport" unique_id=99460744]
+size = Vector2i(128, 128)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=894593468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4540019)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1384927845]
+transform = Transform3D(0.9215653, 0.3882234, 0, -0.32685515, 0.7758893, -0.5395939, -0.20948297, 0.497271, 0.84192544, 0, 0, -3.7266705)
+mesh = SubResource("CapsuleMesh_iru06")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=448045789]
+environment = SubResource("Environment_iru06")

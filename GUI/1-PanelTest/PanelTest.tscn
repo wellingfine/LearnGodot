@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bu8do4ifhvn6d"]
+
+[ext_resource type="Script" uid="uid://jox23u863ydr" path="res://GUI/1-PanelTest/PanelTest.cs" id="1_23gpt"]
+[ext_resource type="Theme" uid="uid://bq8yinn8prl87" path="res://GUI/1-PanelTest/new_theme.tres" id="1_rmty5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nj1at"]
+bg_color = Color(0.8065352, 0.80615175, 0.9821057, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.3105705, 0.9391885, 0.49720627, 1)
+
+[sub_resource type="Theme" id="Theme_nj1at"]
+
+[sub_resource type="Gradient" id="Gradient_rmty5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_23gpt"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ypja4"]
+noise = SubResource("FastNoiseLite_23gpt")
+color_ramp = SubResource("Gradient_rmty5")
+seamless = true
+seamless_blend_skirt = 0.439
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ru26m"]
+texture = SubResource("NoiseTexture2D_ypja4")
+
+[node name="Panel" type="Control" unique_id=2131689931]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_23gpt")
+
+[node name="Panel" type="Panel" parent="." unique_id=33434597]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 203.0
+offset_top = 131.0
+offset_right = 548.0
+offset_bottom = 390.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nj1at")
+
+[node name="Label" type="Label" parent="." unique_id=1087924838]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 435.0
+offset_right = 427.0
+offset_bottom = 493.0
+theme = SubResource("Theme_nj1at")
+text = "测试1234abcdEFG"
+
+[node name="Button" type="Button" parent="." unique_id=1023981273]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 431.0
+offset_right = 930.0
+offset_bottom = 556.0
+theme = ExtResource("1_rmty5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ru26m")
+text = "OK"
+
+[node name="Button2" type="Button" parent="." unique_id=1822929336]
+layout_mode = 0
+offset_left = 678.0
+offset_top = 288.0
+offset_right = 912.0
+offset_bottom = 373.0
+theme = ExtResource("1_rmty5")
+theme_type_variation = &"XXX"
+text = "GGG"
+
+[node name="Button3" type="Button" parent="." unique_id=626754630]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 470.0
+offset_right = 595.0
+offset_bottom = 573.0
+text = "222"

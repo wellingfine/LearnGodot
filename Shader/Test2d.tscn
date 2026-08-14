@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://catgx4866qthy"]
+
+[ext_resource type="Shader" uid="uid://c4uynrgivaqqi" path="res://Shader/SpriteOutline.gdshader" id="1_0n2w3"]
+[ext_resource type="Texture2D" uid="uid://dlimcemfbed8f" path="res://chiikawa.png" id="2_0n2w3"]
+[ext_resource type="Shader" uid="uid://537xtyya11ja" path="res://Shader/StylizedWater.gdshader" id="3_0n2w3"]
+[ext_resource type="Shader" uid="uid://bjdvh5kfq4680" path="res://Shader/Dissolve.gdshader" id="3_c8ofu"]
+[ext_resource type="Shader" uid="uid://c308c26w4cvo7" path="res://Shader/CRT.gdshader" id="5_d6vry"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6vry"]
+shader = ExtResource("1_0n2w3")
+shader_parameter/outline_color = Color(1, 0.23529412, 1, 1)
+shader_parameter/outline_width = 50.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0n2w3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1xspc"]
+shader = ExtResource("3_c8ofu")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_0n2w3")
+shader_parameter/threshold = 0.3170000150575
+shader_parameter/edge_color = Color(1, 0.5, 0, 1)
+shader_parameter/edge_width = 0.0550000026125
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c8ofu"]
+shader = ExtResource("3_0n2w3")
+shader_parameter/wave_speed = 1.8050000000000002
+shader_parameter/wave_amount = 0.02400000114
+shader_parameter/water_tint = Color(0.25490198, 0.6117647, 0.7882353, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efmb2"]
+shader = ExtResource("5_d6vry")
+shader_parameter/scanline_intensity = 0.3230000153425
+shader_parameter/scanline_freq = 135.1190016681525
+shader_parameter/curvature = 0.3050000144875
+
+[node name="Test2d" type="Node2D" unique_id=2132933166]
+
+[node name="Outline" type="Sprite2D" parent="." unique_id=1899559495]
+material = SubResource("ShaderMaterial_d6vry")
+position = Vector2(110, 100)
+scale = Vector2(0.13046879, 0.12360495)
+texture = ExtResource("2_0n2w3")
+
+[node name="Dissolve" type="Sprite2D" parent="." unique_id=1260201666]
+material = SubResource("ShaderMaterial_1xspc")
+position = Vector2(300.1967, 103.86916)
+scale = Vector2(0.12633884, 0.113395385)
+texture = ExtResource("2_0n2w3")
+
+[node name="StylziedWater" type="Sprite2D" parent="." unique_id=1378737749]
+material = SubResource("ShaderMaterial_c8ofu")
+position = Vector2(479, 103)
+scale = Vector2(0.12633884, 0.113395385)
+texture = ExtResource("2_0n2w3")
+
+[node name="CRT" type="Sprite2D" parent="." unique_id=1158326392]
+material = SubResource("ShaderMaterial_efmb2")
+position = Vector2(670, 102)
+scale = Vector2(0.12633884, 0.113395385)
+texture = ExtResource("2_0n2w3")

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://qpxk13upkg7n"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a72fb"]
+sky_top_color = Color(0.37520877, 0.48512018, 0.34536818, 1)
+sky_horizon_color = Color(0.66429543, 0.6840233, 0.64008534, 1)
+ground_horizon_color = Color(0.66429543, 0.6840233, 0.64008534, 1)
+
+[sub_resource type="Sky" id="Sky_n6lqj"]
+sky_material = SubResource("ProceduralSkyMaterial_a72fb")
+
+[sub_resource type="Environment" id="Environment_70mka"]
+background_mode = 2
+sky = SubResource("Sky_n6lqj")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a72fb"]
+albedo_color = Color(1, 0.18039216, 0.4509804, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6lqj"]
+albedo_color = Color(0.13725491, 1, 0.27058825, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_a72fb"]
+
+[sub_resource type="VoxelGIData" id="VoxelGIData_a72fb"]
+
+[node name="Gi" type="Node3D" unique_id=981992311]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1876740017]
+environment = SubResource("Environment_70mka")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1347290578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052056313, 0, -3.2836914)
+size = Vector3(14, 1, 13.567383)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=1230899863]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 6.3740683, 5.2025585, 0.3102665)
+size = Vector3(14, 1, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=652245408]
+transform = Transform3D(1.3113412e-07, 0.9999997, 0, -0.9999997, 1.3113412e-07, 0, 0, 0, 1, -7.40886, 6.04048, -0.4554119)
+size = Vector3(14, 1, 10)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D" unique_id=1831900780]
+transform = Transform3D(1.9106848e-15, -4.3711374e-08, 0.9999999, -0.99999964, -4.3711374e-08, 0, 4.3711374e-08, -0.99999964, -4.3711385e-08, -0.5600436, 6.04048, 5.2608347)
+size = Vector3(14, 1, 14.001465)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D" unique_id=799277537]
+transform = Transform3D(-0.99999976, 8.742275e-08, 0, -8.742275e-08, -0.99999976, 0, 0, 0, 1, -0.18950939, 12.604057, -0.117277145)
+size = Vector3(14, 1, 12.32373)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=382447646]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.5158191, 2.4986715, -3.9101946)
+radial_segments = 56
+rings = 9
+material = SubResource("StandardMaterial3D_a72fb")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=184036253]
+transform = Transform3D(1.837874, 0, 0, 0, 1, 0, 0, 0, 2.2647593, 3.2592745, 2.0446649, -3)
+height = 4.0
+material = SubResource("StandardMaterial3D_n6lqj")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1930617027]
+transform = Transform3D(-0.99947715, -0.008176595, 0.0312831, 0, 0.96749794, 0.25287902, -0.032334022, 0.2527468, -0.966992, 0.13054931, 5.0430818, -12.3152485)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=868164184]
+transform = Transform3D(0.973972, 0.018095752, -0.22594485, 0.2266683, -0.077755705, 0.9708633, 0, -0.9968082, -0.07983361, -0.11765194, 9.722816, -3.5834095)
+light_energy = 12.429
+spot_range = 13.548386
+
+[node name="VoxelGI" type="VoxelGI" parent="." unique_id=1965520887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.53671, -4.2155876)
+camera_attributes = SubResource("CameraAttributesPractical_a72fb")
+data = SubResource("VoxelGIData_a72fb")

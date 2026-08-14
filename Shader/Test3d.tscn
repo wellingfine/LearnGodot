@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ekjfgh01fqbq"]
+
+[ext_resource type="Shader" uid="uid://msx4uy3qxuau" path="res://Shader/Toon.gdshader" id="1_xpmxy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1xspc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwtgo"]
+render_priority = 0
+shader = ExtResource("1_xpmxy")
+shader_parameter/base_color = Color(0.5582368, 0.44009188, 0.9096801, 1)
+shader_parameter/bands = 3
+
+[node name="Test3d" type="Node3D" unique_id=1450955268]
+
+[node name="Toon" type="MeshInstance3D" parent="." unique_id=1474222447]
+mesh = SubResource("SphereMesh_1xspc")
+surface_material_override/0 = SubResource("ShaderMaterial_jwtgo")
