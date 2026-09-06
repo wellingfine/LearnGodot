@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cb8f6f174n0ee"]
+
+[ext_resource type="Texture2D" uid="uid://c7xo7748drwj1" path="res://Asset/Spark.png" id="1_08lqh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ox00g"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_08lqh")
+
+[sub_resource type="Curve" id="Curve_y2y8w"]
+_data = [Vector2(0, 0.50084126), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mulpp"]
+_limits = [0.0, 3.5, 0.0, 1.0]
+_data = [Vector2(0, 3.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tgn47"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_0wrjr"]
+curve_x = SubResource("Curve_y2y8w")
+curve_y = SubResource("Curve_mulpp")
+curve_z = SubResource("Curve_tgn47")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5epbx"]
+particle_flag_align_y = true
+spread = 15.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+scale_min = 0.049999997
+scale_max = 0.14999999
+scale_curve = SubResource("CurveXYZTexture_0wrjr")
+color = Color(4.727, 3.4140553, 1.9278257, 1)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.39
+
+[sub_resource type="QuadMesh" id="QuadMesh_nqfvf"]
+
+[node name="Sparks2" type="GPUParticles3D" unique_id=1388377724]
+material_override = SubResource("StandardMaterial3D_ox00g")
+amount = 40
+lifetime = 0.5
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5epbx")
+draw_pass_1 = SubResource("QuadMesh_nqfvf")

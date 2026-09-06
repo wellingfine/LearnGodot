@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://5eg0a26n3681"]
+
+[ext_resource type="PackedScene" uid="uid://d0jlswq4bpdgf" path="res://VFX/Spark1.tscn" id="1_bpoik"]
+[ext_resource type="PackedScene" uid="uid://cb8f6f174n0ee" path="res://VFX/Spark2.tscn" id="2_bpoik"]
+[ext_resource type="Texture2D" uid="uid://c7xo7748drwj1" path="res://Asset/Spark.png" id="3_2no3c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wdvom"]
+sky_top_color = Color(0.37520877, 0.48512018, 0.34536818, 1)
+sky_horizon_color = Color(0.66429543, 0.6840233, 0.64008534, 1)
+ground_horizon_color = Color(0.66429543, 0.6840233, 0.64008534, 1)
+
+[sub_resource type="Sky" id="Sky_o5pmk"]
+sky_material = SubResource("ProceduralSkyMaterial_wdvom")
+
+[sub_resource type="Environment" id="Environment_pmkv3"]
+background_mode = 2
+background_energy_multiplier = 0.38
+sky = SubResource("Sky_o5pmk")
+glow_enabled = true
+glow_intensity = 0.1
+glow_blend_mode = 0
+glow_hdr_threshold = 0.5
+glow_hdr_scale = 1.5
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0892
+volumetric_fog_albedo = Color(0.49116164, 0.49116123, 0.4911614, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1xspc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o410g"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_2no3c")
+
+[sub_resource type="Curve" id="Curve_vtmkc"]
+_data = [Vector2(0, 1), 0.0, -1.699635, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a2cwo"]
+curve = SubResource("Curve_vtmkc")
+
+[sub_resource type="Curve" id="Curve_bpoik"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 100), 164.58025, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bpoik"]
+curve = SubResource("Curve_bpoik")
+
+[sub_resource type="Curve" id="Curve_a2cwo"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(1, 0.23150635), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3wnfh"]
+curve = SubResource("Curve_a2cwo")
+
+[sub_resource type="Curve" id="Curve_2no3c"]
+_data = [Vector2(0, 0), 0.0, 4.134299, 0, 0, Vector2(0.49497807, 0.98458797), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.07621627, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2no3c"]
+curve = SubResource("Curve_2no3c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1xspc"]
+particle_flag_align_y = true
+emission_shape = 2
+emission_sphere_radius = 3.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -13.000002
+radial_accel_max = -8.000002
+radial_accel_curve = SubResource("CurveTexture_3wnfh")
+damping_min = 3.0000002
+damping_max = 3.0000002
+damping_curve = SubResource("CurveTexture_bpoik")
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_2no3c")
+color = Color(1.9658912, 2.657696, 3.003151, 1)
+alpha_curve = SubResource("CurveTexture_a2cwo")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jwtgo"]
+size = Vector2(0.2, 1)
+
+[node name="1Spark1" type="Node3D" unique_id=911596100]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=757431684]
+environment = SubResource("Environment_pmkv3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=596422097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.269445)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=631551246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8119125, 1.0129161, 0)
+mesh = SubResource("CapsuleMesh_1xspc")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="." unique_id=1215896702]
+transform = Transform3D(9.152729, 0, 0, 0, 0.23660785, 0, 0, 0, 13.988053, 0, -0.22999042, 0)
+
+[node name="vfxs" type="Node" parent="." unique_id=994281560]
+
+[node name="Sparks1" parent="vfxs" unique_id=198670495 instance=ExtResource("1_bpoik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6310313, 0.76613307)
+visible = false
+
+[node name="Sparks2" parent="vfxs" unique_id=1388377724 instance=ExtResource("2_bpoik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.8)
+visible = false
+
+[node name="Aoe01" type="Node3D" parent="vfxs" unique_id=1449650738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.701921)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="vfxs/Aoe01" unique_id=353978903]
+material_override = SubResource("StandardMaterial3D_o410g")
+amount = 30
+lifetime = 0.4
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_1xspc")
+draw_pass_1 = SubResource("QuadMesh_jwtgo")
