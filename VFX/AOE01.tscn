@@ -9,6 +9,7 @@
 [ext_resource type="Curve" uid="uid://xgeulo4wf3yd" path="res://VFX/AOE_Size.curve.tres" id="4_w5pu3"]
 [ext_resource type="Texture2D" uid="uid://bjfee18v0p1it" path="res://Asset/Ring.png" id="6_ngbwt"]
 [ext_resource type="Texture2D" uid="uid://dqvuwhp0kw72x" path="res://Asset/Explode.png" id="7_ngbwt"]
+[ext_resource type="Texture2D" uid="uid://cy5i20wecndv4" path="res://Asset/Ring2.png" id="10_ucigw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o410g"]
 transparency = 1
@@ -261,6 +262,43 @@ alpha_curve = SubResource("CurveTexture_dvnxs")
 
 [sub_resource type="SphereMesh" id="SphereMesh_nqfvf"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qehrr"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("10_ucigw")
+
+[sub_resource type="Curve" id="Curve_kmp7n"]
+_data = [Vector2(0, 1), 0.0, -1.1483194, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ioj6q"]
+curve = SubResource("Curve_kmp7n")
+
+[sub_resource type="Gradient" id="Gradient_relvr"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a03nv"]
+gradient = SubResource("Gradient_relvr")
+
+[sub_resource type="Curve" id="Curve_3fmfa"]
+_data = [Vector2(0.0098165795, 0), 0.0, 2.4926515, 0, 0, Vector2(0.7445104, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6nt7q"]
+curve = SubResource("Curve_3fmfa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dhadh"]
+gravity = Vector3(0, 0, 0)
+scale_min = 15.0
+scale_max = 15.0
+scale_curve = SubResource("CurveTexture_6nt7q")
+color = Color(0.6530389, 1.311311, 1.8247963, 1)
+color_ramp = SubResource("GradientTexture1D_a03nv")
+alpha_curve = SubResource("CurveTexture_ioj6q")
+
 [node name="Aoe01" type="Node3D" unique_id=469181781 node_paths=PackedStringArray("ParticlesRoot")]
 script = ExtResource("1_13s2w")
 LoopInterval = 0.0
@@ -279,7 +317,7 @@ process_material = SubResource("ParticleProcessMaterial_1xspc")
 draw_pass_1 = SubResource("QuadMesh_jwtgo")
 script = ExtResource("3_dvnxs")
 
-[node name="Beam" type="GPUParticles3D" parent="Particle" unique_id=1147713338]
+[node name="Cylinder" type="GPUParticles3D" parent="Particle" unique_id=1147713338]
 material_override = SubResource("ShaderMaterial_fseuu")
 emitting = false
 amount = 1
@@ -290,7 +328,7 @@ process_material = SubResource("ParticleProcessMaterial_jwtgo")
 draw_pass_1 = ExtResource("2_pjd6g")
 script = ExtResource("3_dvnxs")
 
-[node name="Ground" type="GPUParticles3D" parent="Particle" unique_id=672135595]
+[node name="CircleGround" type="GPUParticles3D" parent="Particle" unique_id=672135595]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ti0mt")
 emitting = false
@@ -338,5 +376,17 @@ process_material = SubResource("ParticleProcessMaterial_3wnfh")
 draw_pass_1 = SubResource("SphereMesh_nqfvf")
 script = ExtResource("3_dvnxs")
 Delay = 0.55
+
+[node name="ShockWaveGround" type="GPUParticles3D" parent="Particle" unique_id=690263770]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qehrr")
+emitting = false
+amount = 1
+lifetime = 0.6
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_dhadh")
+draw_pass_1 = SubResource("QuadMesh_3wnfh")
+script = ExtResource("3_dvnxs")
+Delay = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=802660237]
