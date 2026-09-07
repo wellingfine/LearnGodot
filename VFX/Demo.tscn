@@ -63,11 +63,9 @@ material = SubResource("StandardMaterial3D_bpoik")
 
 [node name="Sparks1" parent="vfxs" unique_id=198670495 instance=ExtResource("1_bpoik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6310313, 0.76613307)
-visible = false
 
 [node name="Sparks2" parent="vfxs" unique_id=1388377724 instance=ExtResource("2_bpoik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.8)
-visible = false
 
 [node name="Aoe01" parent="vfxs" unique_id=469181781 instance=ExtResource("3_bpoik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.701921)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.1109066)

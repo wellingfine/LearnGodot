@@ -176,7 +176,13 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_ucigw"]
 curve = SubResource("Curve_dvnxs")
 
+[sub_resource type="Curve" id="Curve_ioj6q"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_whhox"]
+curve = SubResource("Curve_ioj6q")
 
 [sub_resource type="Curve" id="Curve_ucigw"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -302,9 +308,9 @@ alpha_curve = SubResource("CurveTexture_ioj6q")
 [node name="Aoe01" type="Node3D" unique_id=469181781 node_paths=PackedStringArray("ParticlesRoot")]
 script = ExtResource("1_13s2w")
 LoopInterval = 0.0
-ParticlesRoot = NodePath("Particle")
+ParticlesRoot = NodePath("")
 
-[node name="Particle" type="Node" parent="." unique_id=728580700]
+[node name="Particle" type="Node3D" parent="." unique_id=622472925]
 
 [node name="LightPoint" type="GPUParticles3D" parent="Particle" unique_id=1574071867]
 material_override = SubResource("StandardMaterial3D_o410g")
