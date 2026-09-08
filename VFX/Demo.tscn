@@ -44,6 +44,7 @@ transform = Transform3D(0.8929824, -0.3370975, 0.298241, 0, 0.6626229, 0.7489531
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Env" unique_id=596422097]
 transform = Transform3D(1, 0, 0, 0, 0.5444635, 0.8387846, 0, -0.8387846, 0.5444635, 0, 12.413232, 17.269445)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Env" unique_id=631551246]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8119125, 1.0129161, 0)
